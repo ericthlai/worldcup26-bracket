@@ -5,8 +5,8 @@
 一个手机优先的世界杯 2026 预测小应用 —— 湾区 / 美国境内场次视角。给小组排名次、推演淘汰赛对阵图，还能看来自真实预测市场的实时胜率。
 
 **▶ 开始玩：**
-- 🇨🇳 中文 —— https://ericthlai.github.io/worldcup26/
-- 🇬🇧 English —— https://ericthlai.github.io/worldcup26/en/
+- 🇨🇳 中文 —— https://ericthlai.github.io/worldcup26/zh/
+- 🇬🇧 English —— https://ericthlai.github.io/worldcup26/
 
 > 打开就能用，所有选择自动存在你自己的浏览器里。无需登录，不上传任何信息。纯属娱乐。
 
@@ -19,7 +19,7 @@
 ## 技术
 单页静态网页，无需构建：[Preact](https://preactjs.com) + [HTM](https://github.com/developit/htm) 本地引入，预测存在 `localStorage`，实时胜率由浏览器直接调用 Polymarket 公开的 Gamma API。托管在 GitHub Pages（免费）。
 
-英文版（`/en/`）和中文版（`/`）共用同一套逻辑与同一份预测存档；页脚链接可互相切换。
+英文版（`/`）和中文版（`/zh/`）共用同一套逻辑与同一份预测存档；页脚链接可互相切换。
 
 ## 本地运行
 ```bash

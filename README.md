@@ -5,8 +5,8 @@
 Rank the groups, project the knockout bracket, and watch live win probabilities from a real prediction market. Mobile-first, built around the 52 US-hosted matches.
 
 **▶ Play it:**
-- 🇬🇧 English — https://ericthlai.github.io/worldcup26/en/
-- 🇨🇳 中文 — https://ericthlai.github.io/worldcup26/
+- 🇬🇧 English — https://ericthlai.github.io/worldcup26/
+- 🇨🇳 中文 — https://ericthlai.github.io/worldcup26/zh/
 
 Your picks save automatically in your own browser. No login, nothing uploaded.
 
@@ -19,7 +19,7 @@ Your picks save automatically in your own browser. No login, nothing uploaded.
 ## Tech
 Single static page, no build step. [Preact](https://preactjs.com) and [HTM](https://github.com/developit/htm) load from local files, predictions live in `localStorage`, and odds are fetched client-side from the public Polymarket Gamma API. Hosted on GitHub Pages.
 
-The English (`/en/`) and Chinese (`/`) versions share the same logic and the same saved predictions, with a footer link between them.
+The English (`/`) and Chinese (`/zh/`) versions share the same logic and the same saved predictions, with a footer link between them.
 
 ## Run locally
 ```bash
