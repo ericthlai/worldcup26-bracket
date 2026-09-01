@@ -5,8 +5,8 @@
 Rank the groups, project the knockout bracket, and watch live win probabilities from a real prediction market. Mobile-first, built around the 52 US-hosted matches.
 
 **▶ Play it:**
-- 🇬🇧 English — https://ericthlai.github.io/worldcup26/
-- 🇨🇳 中文 — https://ericthlai.github.io/worldcup26/zh/
+- 🇬🇧 English — https://ericthlai.github.io/worldcup26-bracket/
+- 🇨🇳 中文 — https://ericthlai.github.io/worldcup26-bracket/zh/
 
 Your picks save automatically in your own browser. No login, nothing uploaded.
 
@@ -28,7 +28,7 @@ python -m http.server 8000
 ```
 
 ## Sister project
-[**worldcup-odds**](https://github.com/ericthlai/worldcup-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
+[**worldcup-odds**](https://github.com/ericthlai/worldcup26-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
 
 ## Disclaimer
 Kickoff times follow the official FIFA app. The percentages are implied probabilities from the Polymarket betting market, shown for entertainment.

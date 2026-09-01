@@ -5,8 +5,8 @@
 一个手机优先的世界杯 2026 预测小应用 —— 湾区 / 美国境内场次视角。给小组排名次、推演淘汰赛对阵图，还能看来自真实预测市场的实时胜率。
 
 **▶ 开始玩：**
-- 🇨🇳 中文 —— https://ericthlai.github.io/worldcup26/zh/
-- 🇬🇧 English —— https://ericthlai.github.io/worldcup26/
+- 🇨🇳 中文 —— https://ericthlai.github.io/worldcup26-bracket/zh/
+- 🇬🇧 English —— https://ericthlai.github.io/worldcup26-bracket/
 
 > 打开就能用，所有选择自动存在你自己的浏览器里。无需登录，不上传任何信息。纯属娱乐。
 
