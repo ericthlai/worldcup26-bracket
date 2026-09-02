@@ -1,2 +1,7 @@
 # research-workflow provenance dumps (regenerate from squads.json, not needed by the site)
 data/raw/
+
+# env files
+.env
+.env.*
+!.env.example
