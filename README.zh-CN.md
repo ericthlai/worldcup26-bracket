@@ -19,7 +19,7 @@
 ## 技术
 单页静态网页，无需构建：[Preact](https://preactjs.com) + [HTM](https://github.com/developit/htm) 本地引入，预测存在 `localStorage`，实时胜率由浏览器直接调用 Polymarket 公开的 Gamma API。托管在 GitHub Pages（免费）。
 
-英文版（`/`）和中文版（`/zh/`）共用同一套逻辑与同一份预测存档；页脚链接可互相切换。
+英文版（`/`）和中文版（`/zh/`）是同一个应用的两份独立维护的代码副本，并非共用代码；两者共用同一份球队数据文件和同一个 localStorage 存储键，所以你的预测会在两种语言间同步。页脚链接可互相切换。
 
 ## 本地运行
 ```bash

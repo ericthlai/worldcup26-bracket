@@ -19,7 +19,7 @@ Your picks save automatically in your own browser. No login, nothing uploaded.
 ## Tech
 Single static page, no build step. [Preact](https://preactjs.com) and [HTM](https://github.com/developit/htm) load from local files, predictions live in `localStorage`, and odds are fetched client-side from the public Polymarket Gamma API. Hosted on GitHub Pages.
 
-The English (`/`) and Chinese (`/zh/`) versions share the same logic and the same saved predictions, with a footer link between them.
+The English (`/`) and Chinese (`/zh/`) pages are two separately maintained copies of the same app, not shared code. They share the squad data file and the same `localStorage` key, so your predictions carry across languages, and there's a footer link between them.
 
 ## Run locally
 ```bash
