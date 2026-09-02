@@ -30,5 +30,15 @@ python -m http.server 8000
 ## Sister project
 [**worldcup-odds**](https://github.com/ericthlai/worldcup26-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
 
+## Known limitations
+- The English and Chinese pages are two separately maintained copies of the same app, not one shared codebase — a fix applied to one page does not automatically apply to the other.
+- Only the 52 US-hosted group-stage matches are listed on the Fixtures tab. Canada- and Mexico-hosted games are not shown there, though group standings and the auto-filled bracket account for all 72 group matches via live results.
+- The 8 best-third-place bracket slots are only auto-filled once all 12 groups have finished all 6 of their matches, even for a team that has already mathematically clinched a spot.
+- The third-place-to-bracket-slot mapping is this project's own reconstruction of the tournament's allocation rule, not a verbatim copy of FIFA's official table. Treat the pre-final-day auto-fill as best-effort.
+- Live scores come from ESPN's public scoreboard API and win probabilities from Polymarket's public API. If either changes its data format, team-name spelling, or abbreviation scheme, the corresponding feature can silently stop updating for one match or team without an on-page error.
+- There is no automated test suite. The tiebreak and bracket logic is verified by manual review, not unit tests.
+- Predictions are stored only in your browser's `localStorage`. Clearing site data, switching browsers or devices, or private/incognito mode all lose them; there is no account or cloud sync.
+- The squad and lineup data (projected XI, market values) is a pre-tournament projection compiled from public sources (Transfermarkt, official squad lists) and is not updated live for matchday changes.
+
 ## Disclaimer
 Kickoff times follow the official FIFA app. The percentages are implied probabilities from the Polymarket betting market, shown for entertainment.
