@@ -30,6 +30,11 @@ python -m http.server 8000
 ## Sister project
 [**worldcup-odds**](https://github.com/ericthlai/worldcup26-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
 
+## How this was built
+- **I decided:** the scope (the 52 US-hosted fixtures, group ranking by hand, a pick-your-own bracket), the EN/ZH pages as two separately maintained copies, localStorage-only persistence with no login, and the limits listed below.
+- **The agent generated:** a large share of the implementation. 8 of 23 commits carry a Claude co-author trailer; not every agent session leaves one, so treat that count as a lower bound.
+- **I verified:** by manual review. There is no automated test suite; the tiebreak and bracket logic is checked by hand.
+
 ## Known limitations
 - The English and Chinese pages are two separately maintained copies of the same app, not one shared codebase — a fix applied to one page does not automatically apply to the other.
 - Only the 52 US-hosted group-stage matches are listed on the Fixtures tab. Canada- and Mexico-hosted games are not shown there, though group standings and the auto-filled bracket account for all 72 group matches via live results.
