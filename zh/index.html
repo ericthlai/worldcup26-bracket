@@ -410,7 +410,7 @@ class App extends Component {
   fetchResults(){
     if (this._fetchingR) return;
     this._fetchingR = true;
-    fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719')
+    fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=200')
       .then(r => { if (!r.ok) throw new Error('espn ' + r.status); return r.json(); })
       .then(j => {
         const byPair = {};
