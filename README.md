@@ -32,8 +32,8 @@ python -m http.server 8000
 
 ## How this was built
 - **I decided:** the scope (the 52 US-hosted fixtures, group ranking by hand, a pick-your-own bracket), the EN/ZH pages as two separately maintained copies, localStorage-only persistence with no login, and the limits listed below.
-- **The agent generated:** a large share of the implementation. 8 of 23 commits carry a Claude co-author trailer; not every agent session leaves one, so treat that count as a lower bound.
-- **I verified:** by manual review. There is no automated test suite; the tiebreak and bracket logic is checked by hand.
+- **The agents generated:** a large share of the implementation. 8 of the first 23 commits carry a Claude co-author trailer; later agent-made commits (Claude Code and OpenAI Codex) carry none, so treat that count as a lower bound.
+- **I verified:** by manual review of the tiebreak and bracket logic, plus automated feed, venue, saved-state and persistence tests (`node --test test/*.test.mjs`) that run in CI.
 
 ## Known limitations
 - The English and Chinese pages are two separately maintained copies of the same app, not one shared codebase — a fix applied to one page does not automatically apply to the other.
