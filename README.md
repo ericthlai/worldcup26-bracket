@@ -28,7 +28,7 @@ python -m http.server 8000
 ```
 
 ## Sister project
-[**worldcup-odds**](https://github.com/ericthlai/worldcup26-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
+[**worldcup26-odds**](https://github.com/ericthlai/worldcup26-odds) takes the same tournament and computes it: a 20,000-trial Monte Carlo simulation with a Dixon-Coles goal model, the FIFA Annex C best-third table, and calibration against Polymarket. It tells you which teams are likely to meet where. This one lets you make the calls yourself.
 
 ## How this was built
 - **I decided:** the scope (the 52 US-hosted fixtures, group ranking by hand, a pick-your-own bracket), the EN/ZH pages as two separately maintained copies, localStorage-only persistence with no login, and the limits listed below.
