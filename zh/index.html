@@ -544,10 +544,8 @@ class App extends Component {
   resolveSideReal(m, sd){ return this.realSide(m, sd) || this.resolveSide(this.state, m, sd); }
 
   persist(ns){
-    clearTimeout(this._pt);
-    this._pt = setTimeout(() => {
-      try { localStorage.setItem('wc26v2-state', JSON.stringify({ rank:ns.rank, thirds:ns.thirds, winners:ns.winners })); } catch(e) {}
-    }, 250);
+    // This small state must survive an immediate navigation or language switch.
+    try { localStorage.setItem('wc26v2-state', JSON.stringify({ rank:ns.rank, thirds:ns.thirds, winners:ns.winners })); } catch(e) {}
   }
 
   commit(patch){
@@ -579,6 +577,26 @@ class App extends Component {
   }
 
   validate(st){
+    // Stored browser data is untrusted: keep only known groups, teams and slots.
+    const record = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const rawRank = record(st.rank), rawThirds = record(st.thirds), rawWinners = record(st.winners);
+    st.rank = {}; st.thirds = {}; st.winners = {};
+    Object.keys(this.GROUPS).forEach(g => {
+      if (!Object.prototype.hasOwnProperty.call(rawRank, g) || !Array.isArray(rawRank[g])) return;
+      const picks = rawRank[g].filter((t, i, arr) => this.GROUPS[g].includes(t) && arr.indexOf(t) === i);
+      if (picks.length) st.rank[g] = picks;
+    });
+    this.KO.forEach(m => {
+      if (Object.prototype.hasOwnProperty.call(rawWinners, m.no) && typeof rawWinners[m.no] === 'string') {
+        st.winners[m.no] = rawWinners[m.no];
+      }
+      ['a', 'b'].forEach(sd => {
+        const key = m.no + sd;
+        if (m[sd].k === 't' && Object.prototype.hasOwnProperty.call(rawThirds, key) && typeof rawThirds[key] === 'string') {
+          st.thirds[key] = rawThirds[key];
+        }
+      });
+    });
     const seen = {};
     this.KO.filter(m => m.no <= 88).forEach(m => ['a','b'].forEach(sd => {
       const s = m[sd]; if (s.k !== 't') return;

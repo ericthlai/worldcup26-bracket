@@ -36,7 +36,7 @@ python -m http.server 8000
 - The 8 best-third-place bracket slots are only auto-filled once all 12 groups have finished all 6 of their matches, even for a team that has already mathematically clinched a spot.
 - The third-place-to-bracket-slot mapping is this project's own reconstruction of the tournament's allocation rule, not a verbatim copy of FIFA's official table. Treat the pre-final-day auto-fill as best-effort.
 - Live scores come from ESPN's public scoreboard API and win probabilities from Polymarket's public API. The ESPN request raises its default result cap to 200 so all 104 tournament matches can be returned, but either provider can still change its response format, team-name spelling, or abbreviation scheme without notice.
-- Automated static checks cover the bilingual ESPN feed configuration and the corrected Match 61/66 venues. Tiebreak and bracket logic is still verified by manual review, not unit tests.
+- Run `node --test test/*.test.mjs` for bilingual feed/venue contracts, saved-state recovery, dependent bracket picks, and immediate persistence. Tournament tiebreak rules and live provider response schemas are not covered by these tests.
 - Predictions are stored only in your browser's `localStorage`. Clearing site data, switching browsers or devices, or private/incognito mode all lose them; there is no account or cloud sync.
 - The squad and lineup data (projected XI, market values) is a pre-tournament projection compiled from public sources (Transfermarkt, official squad lists) and is not updated live for matchday changes.
 
