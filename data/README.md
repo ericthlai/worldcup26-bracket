@@ -12,30 +12,37 @@ of the app itself.
 | `squads.json` | **Canonical database.** One entry per team, clean JSON. | ✅ Yes — this is the source of truth. |
 | `squads.js` | Generated `window.WC_SQUADS` global the site loads. | ❌ No — auto-generated, overwritten on build. |
 | `build_squads.py` | Build/validate script. | only to change rules |
-| `raw/*.json` | Provenance: raw research-workflow output batches. | ❌ No — kept for history. |
+| `merge_rosters.py` | Merges a full-roster research batch (default `raw/roster.json`) into `squads.json`. | only to change rules |
+| `qc_diff.py` | Diffs `squads.json` against an independent verification batch (`raw/qc.json`). | only to change rules |
+| [`QC-REPORT.md`](QC-REPORT.md) | Data QC report dated 2026-06-14. | — |
+| `raw/*.json` | Provenance: raw research-workflow output batches. Not in this repository (`data/raw/` is gitignored). | ❌ No |
 
-The site (`../index.html` and `../en/index.html`) loads `squads.js` via a
+The site (`../index.html` and `../zh/index.html`) loads `squads.js` via a
 `<script>` tag, so it works offline and needs no fetch/CORS.
 
 ## Update flow (after a lineup change, injury, transfer, value move)
 
 ```bash
 # 1. edit squads.json  (find the team by its 3-letter code, e.g. "bra")
-# 2. regenerate squads.js + run validation
-cd site/data
+# 2. regenerate squads.js + run validation (from the repo root)
+cd data
 python build_squads.py
 # 3. refresh the page — done.
 ```
 
 `build_squads.py` (no flag) reads `squads.json`, sanitizes it, prints any data
 warnings (missing teams, XI not 11 players, duplicate shirt numbers, unknown
-positions), and writes `squads.js`.
+positions, squads under 20 players), and writes `squads.js`.
 
 ## Rebuild the whole database from research batches
 
 ```bash
 python build_squads.py --assemble   # merges raw/*.json -> squads.json -> squads.js
 ```
+
+This needs the `raw/*.json` batches, which are not committed; without them the
+script stops with "No raw batches". `merge_rosters.py` (by default) and
+`qc_diff.py` also read their input from `raw/`.
 
 ## Schema (per team)
 
