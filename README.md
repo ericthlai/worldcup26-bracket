@@ -2,7 +2,7 @@
 
 # World Cup 2026 Handbook ⚽
 
-Rank the groups, project the knockout bracket, and watch live win probabilities from a real prediction market. Mobile-first, built around the 52 US-hosted matches.
+Rank the groups, project the knockout bracket, and compare your picks with win probabilities from a real prediction market. Mobile-first, built around the 52 US-hosted matches. The tournament ended on 19 July 2026; the page stays up as an archive, with matches marked Ended and markets shown as Closed.
 
 **▶ Play it:**
 - 🇬🇧 English — https://ericthlai.github.io/worldcup26-bracket/
@@ -11,9 +11,9 @@ Rank the groups, project the knockout bracket, and watch live win probabilities 
 Your picks save automatically in your own browser. No login, nothing uploaded.
 
 ## Features
-- **Fixtures** — all 52 US-hosted group matches, each with a live win / draw / win probability bar from the [Polymarket](https://polymarket.com) prediction market
+- **Fixtures** — all 52 US-hosted group matches, each with a win / draw / win probability bar from the [Polymarket](https://polymarket.com) prediction market
 - **Groups** — tap teams to rank each group. Top 2 advance, 3rd enters the best-third pool
-- **Bracket** — interactive knockout bracket that auto-fills from your group rankings, plus a live title-odds board
+- **Bracket** — interactive knockout bracket that auto-fills from your group rankings, plus a title-odds board (final prices since the markets closed)
 - **Share** — generates a shareable prediction-card image
 
 ## Tech
