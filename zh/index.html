@@ -22,6 +22,7 @@
 <script src="../preact.min.umd.js"></script>
 <script src="../htm.umd.js"></script>
 <script src="../data/squads.js"></script>
+<script src="../data/annexc.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -517,6 +518,13 @@ class App extends Component {
     if (groups.some(g => !realRank[g])) return null;
     let thirds = groups.map(g => ({ ...this.groupTable(g).rows[2], g }));
     thirds = thirds.sort((x, y) => y.pts - x.pts || y.gd - x.gd || y.gf - x.gf || this.fifaRankOf(x.code) - this.fifaRankOf(y.code)).slice(0, 8);
+    const annex = window.WC_ANNEXC, row = annex && annex.rows[thirds.map(t => t.g).sort().join('')];
+    if (row) { /* FIFA Annex C: published allocation for exactly this set of qualifying thirds */
+      const byGrp = {}; thirds.forEach(t => byGrp[t.g] = t.code);
+      const fifa = {};
+      this.KO.filter(m => m.no <= 88).forEach(m => { if (m.b.k === 't') fifa[m.no + 'b'] = byGrp[row[annex.winners.indexOf(m.a.g)]]; });
+      return fifa;
+    }
     const qual = thirds.map(t => t.g), slots = [];
     this.KO.filter(m => m.no <= 88).forEach(m => ['a', 'b'].forEach(sd => { if (m[sd].k === 't') slots.push({ key: m.no + sd, gs: m[sd].gs }); }));
     const used = {}, assign = {};

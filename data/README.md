@@ -11,6 +11,7 @@ of the app itself.
 |---|---|---|
 | `squads.json` | **Canonical database.** One entry per team, clean JSON. | ✅ Yes — this is the source of truth. |
 | `squads.js` | Generated `window.WC_SQUADS` global the site loads. | ❌ No — auto-generated, overwritten on build. |
+| `annexc.js` | `window.WC_ANNEXC`: FIFA's Annex C table (best third-placed teams to round-of-32 slots), loaded by both pages. | ❌ No — fixed regulation data. |
 | `build_squads.py` | Build/validate script. | only to change rules |
 | `merge_rosters.py` | Merges a full-roster research batch (default `raw/roster.json`) into `squads.json`. | only to change rules |
 | `qc_diff.py` | Diffs `squads.json` against an independent verification batch (`raw/qc.json`). | only to change rules |
