@@ -4,7 +4,7 @@ import test from 'node:test';
 
 const pagePaths = ['index.html', 'zh/index.html'];
 const expectedFeed =
-  'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=200';
+  'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=2026&limit=200';
 
 for (const pagePath of pagePaths) {
   test(`${pagePath} requests the complete tournament result set`, async () => {
@@ -13,12 +13,12 @@ for (const pagePath of pagePaths) {
     assert.equal(
       source.split(expectedFeed).length - 1,
       1,
-      'the bounded ESPN tournament feed should appear exactly once',
+      'the ESPN whole-season feed (limit=200) should appear exactly once',
     );
     assert.doesNotMatch(
       source,
-      /scoreboard\?dates=20260611-20260719['"]/,
-      'an unbounded request can silently stop at ESPN\'s 100-event default',
+      /scoreboard\?dates=\d{8}-\d{8}/,
+      'ESPN rejects date-range requests with HTTP 400',
     );
   });
 
